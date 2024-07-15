@@ -36,6 +36,6 @@ print(f"{first_number} {operator_symbol} {second_number} = {first_answer} ")
 
 next_operator = input("Choose another operator: ")
 next_number = int(input("Enter the next number: "))
-calculation_function2 = operator[operator_symbol]
+calculation_function2 = operator[next_operator]
 second_answer = calculation_function2(first_answer, next_number)
 print(f"{first_answer} {next_operator} {next_number} = {second_answer} ")
