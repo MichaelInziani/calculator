@@ -40,7 +40,11 @@ def calculator():
         next_number = input("Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ")
         if next_number == "y":
             first_number = answer
+        elif next_number == "n":
+            should_continue = False
+            calculator()
         else:
+            print("Invalid input. Please try again")
             should_continue = False
             calculator()
 
