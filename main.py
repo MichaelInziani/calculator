@@ -34,7 +34,14 @@ def takeOperation():
 
 def calculator():
     print(logo)
-    first_number = float(input("Enter the first number: "))
+    #first_number = float(input("Enter first number: "))
+    first_number = ''
+    while first_number is not float:
+        try:
+            first_number = float(input("Enter the first number: "))
+            break
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
     should_continue = True
     while should_continue:
@@ -42,12 +49,20 @@ def calculator():
             print(symbol)
         #operator_symbol = input("Select an operator from the ones above: ")
         operation = takeOperation()
-        second_number = float(input("Enter the next number: "))
+        second_number = ''
+        while second_number is not float:
+            try:
+                second_number = float(input("Enter the second number: "))
+                break
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+
+        #second_number = float(input("Enter the next number: "))
         calculation_function = operator[operation]
         answer = calculation_function(first_number, second_number)
         print(f"{first_number} {operation} {second_number} = {answer} ")
 
-        next_number = input(f"Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ")
+        next_number = input(f"Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ").lower()
         if next_number == "y":
             first_number = answer
         elif next_number == "n":
