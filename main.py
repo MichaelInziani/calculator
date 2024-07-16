@@ -26,11 +26,10 @@ def calculator():
     print(logo)
     first_number = float(input("Enter the first number: "))
 
-    for symbol in operator:
-        print(symbol)
-
     should_continue = True
     while should_continue:
+        for symbol in operator:
+            print(symbol)
         operator_symbol = input("Select an operator from the ones above: ")
         second_number = float(input("Enter the next number: "))
         calculation_function = operator[operator_symbol]
