@@ -37,7 +37,7 @@ def calculator():
         answer = calculation_function(first_number, second_number)
         print(f"{first_number} {operator_symbol} {second_number} = {answer} ")
 
-        next_number = input("Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ")
+        next_number = input(f"Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ")
         if next_number == "y":
             first_number = answer
         elif next_number == "n":
