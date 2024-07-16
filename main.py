@@ -22,20 +22,25 @@ operator = {
     "/": divide
 }
 
-first_number = int(input("Enter the first number: "))
+def calculator():
+    first_number = int(input("Enter the first number: "))
 
-for symbol in operator:
-    print(symbol)
+    for symbol in operator:
+        print(symbol)
 
-operator_symbol = input("Select an operator from the ones above: ")
+    should_continue = True
+    while should_continue:
+        operator_symbol = input("Select an operator from the ones above: ")
+        second_number = int(input("Enter the next number: "))
+        calculation_function = operator[operator_symbol]
+        answer = calculation_function(first_number, second_number)
+        print(f"{first_number} {operator_symbol} {second_number} = {answer} ")
 
-second_number = int(input("Enter the second number: "))
-calculation_function = operator[operator_symbol]
-first_answer = calculation_function(first_number, second_number)
-print(f"{first_number} {operator_symbol} {second_number} = {first_answer} ")
+        next_number = input("Enter 'y' to continue calculating with {answer} or 'n' to start a new calculation: ")
+        if next_number == "y":
+            first_number = answer
+        else:
+            should_continue = False
+            calculator()
 
-next_operator = input("Choose another operator: ")
-next_number = int(input("Enter the next number: "))
-calculation_function2 = operator[next_operator]
-second_answer = calculation_function2(first_answer, next_number)
-print(f"{first_answer} {next_operator} {next_number} = {second_answer} ")
+calculator()
